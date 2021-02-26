@@ -4,17 +4,21 @@ import Home from "./pages/Home";
 import Question from "./pages/Question";
 import Leaders from "./pages/Leader";
 import ProtectedRoute from "./protectedRoutes";
+import Nav from "./components/Nav";
 
 const App = () => {
   return (
-    <Router>
-      <Switch>
-        <Route path="/" exact component={Login} />
-        <ProtectedRoute path="/home" component={Home} />
-        <Route path="/questions" component={Question} />
-        <Route path="/leaders" component={Leaders} />
-      </Switch>
-    </Router>
+    <>
+      <Router>
+        <Nav />
+        <Switch>
+          <Route path="/" exact component={Login} />
+          <ProtectedRoute path="/home" component={Home} />
+          <ProtectedRoute path="/questions" component={Question} />
+          <ProtectedRoute path="/leaders" component={Leaders} />
+        </Switch>
+      </Router>
+    </>
   );
 };
 
