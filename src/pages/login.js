@@ -15,7 +15,15 @@ const Login = () => {
 
   const userHandler = (e) => {
     console.log(e.target.value);
-    setloggedUser(e.target.value);
+
+    const usersArray = Object.keys(users).map((key) => {
+      const value = users[key];
+      return value;
+    });
+    console.log(usersArray);
+    const user = usersArray.find((usr) => usr.id === e.target.value);
+    console.log(user);
+    setloggedUser(user);
   };
 
   return (
