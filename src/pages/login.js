@@ -13,23 +13,17 @@ const Login = () => {
   useEffect(() => {
     dispatch(fetchAllusers());
   }, [dispatch]);
-  let userArray = [];
-  if (users) {
-    userArray = Object.keys(users).map((key) => {
-      let value = users[key];
-      return value;
-    });
-  }
 
   return (
     <>
       <h1>Login</h1>
-      <div>
-        {userArray &&
-          userArray.map((user) => <li key={user.id}>{user.name}</li>)}
-      </div>
       <select>
-        <option></option>
+        {users &&
+          Object.keys(users).map((key) => (
+            <option key={users[key].id} value={users[key].id}>
+              {users[key].name}
+            </option>
+          ))}
       </select>
     </>
   );
