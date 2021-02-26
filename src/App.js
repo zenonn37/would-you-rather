@@ -3,13 +3,14 @@ import Login from "./pages/login";
 import Home from "./pages/Home";
 import Question from "./pages/Question";
 import Leaders from "./pages/Leader";
+import ProtectedRoute from "./protectedRoutes";
 
 const App = () => {
   return (
     <Router>
       <Switch>
         <Route path="/" exact component={Login} />
-        <Route path="/home" component={Home} />
+        <ProtectedRoute path="/home" component={Home} />
         <Route path="/questions" component={Question} />
         <Route path="/leaders" component={Leaders} />
       </Switch>
