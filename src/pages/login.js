@@ -1,34 +1,37 @@
 //Login Page, Component
 import { useEffect, useState } from "react";
 import { fetchAllusers } from "../actions/shared";
+import { setLoggedUser, logOut } from "../actions/users";
 import { useDispatch, useSelector } from "react-redux";
 
 const Login = () => {
   const dispatch = useDispatch();
 
-  const { users } = useSelector((state) => state.users);
-  const [loggedUser, setloggedUser] = useState({});
+  const { users, isAuth } = useSelector((state) => state.users);
 
   useEffect(() => {
     dispatch(fetchAllusers());
   }, [dispatch]);
 
   const userHandler = (e) => {
-    console.log(e.target.value);
-
     const usersArray = Object.keys(users).map((key) => {
       const value = users[key];
       return value;
     });
-    console.log(usersArray);
+
     const user = usersArray.find((usr) => usr.id === e.target.value);
-    console.log(user);
-    setloggedUser(user);
+
+    dispatch(setLoggedUser(user));
+  };
+
+  const logOutHandler = () => {
+    dispatch(logOut());
   };
 
   return (
     <>
       <h1>Login</h1>
+      {isAuth && <p>Logged in</p>}
       <select value="login" onChange={(e) => userHandler(e)}>
         <option value="login" disabled>
           Login Please
@@ -40,6 +43,9 @@ const Login = () => {
             </option>
           ))}
       </select>
+      <div>
+        <button onClick={() => logOutHandler()}>LOGOUT</button>
+      </div>
     </>
   );
 };
