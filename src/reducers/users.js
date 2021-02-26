@@ -1,12 +1,7 @@
 import { GET_ALL_USERS } from "../types/types";
 
 const initState = {
-  users: [
-    {
-      id: 1,
-      name: "Jack",
-    },
-  ],
+  users: [],
 };
 
 export const users = (state = initState, action) => {
