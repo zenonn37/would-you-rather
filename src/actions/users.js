@@ -1,6 +1,6 @@
-import { GET_ALL_USERS } from "../types";
+import { GET_ALL_USERS } from "../types/types";
 
-export const getUsers = (users) => {
+export const getUsersAction = (users) => {
   return {
     type: GET_ALL_USERS,
     users,

@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { fetchAllusers } from "./actions/shared";
 import { useDispatch, useSelector } from "react-redux";
 
 const App = () => {
@@ -8,7 +9,9 @@ const App = () => {
 
   console.log(users);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    dispatch(fetchAllusers());
+  }, [dispatch]);
   return <div className="App">App</div>;
 };
 
