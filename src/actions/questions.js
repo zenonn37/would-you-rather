@@ -1,8 +1,8 @@
-import { GET_QUESTIONS } from "../types";
+import { GET_QUESTIONS } from "../types/types";
 
-export const questionsAction = (uestions) => {
+export const questionsAction = (payload) => {
   return {
     type: GET_QUESTIONS,
-    questions,
+    payload,
   };
 };
