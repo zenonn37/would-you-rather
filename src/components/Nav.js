@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 const Nav = () => {
   const dispatch = useDispatch();
 
-  const { isAuth } = useSelector((state) => state.users);
+  const { isAuth, loggedIn } = useSelector((state) => state.users);
   const handleLogOut = () => {
     dispatch(logOut());
   };
@@ -16,12 +16,13 @@ const Nav = () => {
           <Link to="/home">
             <li>Home</li>
           </Link>
-          <Link to="/questions">
-            <li>Questions</li>
+          <Link to="/new">
+            <li>New</li>
           </Link>
           <Link to="/leaders">
             <li>Leaders</li>
           </Link>
+          {loggedIn && <li>{loggedIn.name}</li>}
 
           <li onClick={() => handleLogOut()}>Logout</li>
         </ul>

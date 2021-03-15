@@ -2,6 +2,7 @@ import { GET_ALL_USERS, SET_LOGGED_USER, LOGOUT } from "../types/types";
 
 const initState = {
   users: [],
+
   isAuth: false,
   loggedIn: {},
 };

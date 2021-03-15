@@ -5,6 +5,7 @@ import Question from "./pages/Question";
 import Leaders from "./pages/Leader";
 import ProtectedRoute from "./protectedRoutes";
 import Nav from "./components/Nav";
+import New from "./pages/New";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
           <ProtectedRoute path="/home" component={Home} />
           <ProtectedRoute path="/questions" component={Question} />
           <ProtectedRoute path="/leaders" component={Leaders} />
+          <ProtectedRoute path="/new" component={New} />
         </Switch>
       </Router>
     </>
